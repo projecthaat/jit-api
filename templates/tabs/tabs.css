@@ -1,0 +1,35 @@
+haat-tabs {
+  display: block;
+  color: #1a1c1b;
+  font-family: system-ui, sans-serif;
+}
+
+haat-tabs [role="tablist"] {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid #d9d5cb;
+}
+
+haat-tabs[orientation="vertical"] [role="tablist"] {
+  flex-direction: column;
+  border-right: 1px solid #d9d5cb;
+  border-bottom: 0;
+}
+
+haat-tabs [role="tab"] {
+  padding: 10px 14px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: #656762;
+  background: transparent;
+  cursor: pointer;
+}
+
+haat-tabs [role="tab"][aria-selected="true"] {
+  border-bottom-color: #f05a47;
+  color: #1a1c1b;
+}
+
+haat-tabs [role="tabpanel"] {
+  padding: 20px 0;
+}

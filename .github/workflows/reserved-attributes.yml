@@ -1,0 +1,23 @@
+name: Reserved attributes
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate reserved attribute policy
+        shell: bash
+        run: |
+          set -euo pipefail
+          jq -e '.reserved_attributes | type == "object" and has("seo-text")' reserved_attributes.json >/dev/null
+          jq -e '.components | type == "object"' custom_attributes.json >/dev/null
+          while IFS= read -r attribute; do
+            grep -R --fixed-strings -- "$attribute" main.go schema.json README.md >/dev/null
+          done < <(jq -r '.reserved_attributes | keys[]' reserved_attributes.json)

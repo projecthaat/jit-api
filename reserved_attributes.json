@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "reserved_attributes": {
+    "seo-text": {
+      "type": "string",
+      "min_length": 1,
+      "description": "SEO text must accurately match the visible component content."
+    }
+  }
+}

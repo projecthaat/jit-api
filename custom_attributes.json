@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "components": {
+    "slider": {
+      "autoplay": {"type": "boolean"},
+      "interval": {"type": "integer", "min": 100}
+    },
+    "modal": {
+      "open": {"type": "boolean"},
+      "disable-esc": {"type": "boolean"},
+      "disable-backdrop-click": {"type": "boolean"}
+    },
+    "tabs": {
+      "active": {"type": "integer", "min": 0},
+      "orientation": {"type": "string", "allowed_values": ["horizontal", "vertical"]},
+      "loop": {"type": "boolean"}
+    },
+    "toast": {
+      "open": {"type": "boolean"},
+      "duration": {"type": "integer", "min": 0},
+      "variant": {"type": "string", "allowed_values": ["info", "success", "warning", "error"]},
+      "dismissible": {"type": "boolean"}
+    }
+  }
+}

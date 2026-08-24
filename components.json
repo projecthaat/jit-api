@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "registry": {
+    "slider": {
+      "css": "templates/slider/slider.css",
+      "js": "templates/slider/slider.js"
+    },
+    "modal": {
+      "css": "templates/modal/modal.css",
+      "js": "templates/modal/modal.js"
+    },
+    "tabs": {
+      "css": "templates/tabs/tabs.css",
+      "js": "templates/tabs/tabs.js"
+    },
+    "toast": {
+      "css": "templates/toast/toast.css",
+      "js": "templates/toast/toast.js"
+    }
+  }
+}

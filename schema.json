@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HAAT Compile Request",
+  "description": "Component attributes may be extended freely, while names listed in reserved_attributes.json keep their platform-wide meaning.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "client_token": {
+      "type": "string",
+      "minLength": 10
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 5
+    },
+    "requested_components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "type": "string",
+            "pattern": "^[a-z0-9\\-]+$"
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "seo-text": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Reserved SEO text. It must accurately match the visible component content."
+              }
+            },
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["tag", "id"]
+      }
+    }
+  },
+  "required": ["$schema", "client_token", "session_id", "requested_components"]
+}

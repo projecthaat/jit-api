@@ -1,0 +1,18 @@
+name: Documentation-ready PR
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  description:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require documentation-ready information
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if ! grep -Eiq 'documentation-ready[[:space:]]*|no documentation change' <<< "$PR_BODY"; then
+            echo "The PR description must contain a Documentation-ready note or 'No documentation change'."
+            exit 1
+          fi

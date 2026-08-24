@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest an improvement to the HAAT JIT API
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What user or API problem would this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the desired behavior, including schema or SEO implications.
+    validations:
+      required: true
