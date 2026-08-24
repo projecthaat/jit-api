@@ -37,13 +37,15 @@ Readiness is available at `GET /healthz` and returns the number of loaded compon
 
 The `seo-text` attribute is reserved for SEO optimization. It must be meaningful, non-empty text and must accurately match the visible content of the component. Do not use it for styling, tracking, or unrelated component configuration. Component-specific attributes remain available alongside it.
 
-The complete request schema is available at [`schema.json`](schema.json). Registered component assets are listed in [`components.json`](components.json). The registry includes `slider`, `modal`, `tabs`, and `toast`.
+The complete request schema is available at [`schema.json`](schema.json). Registered component assets are listed in [`components.json`](components.json). The registry includes `slider`, `modal`, `tabs`, `toast`, and `accessibility`.
 
 ### Attributes
 
 Platform-wide names are defined in [`reserved_attributes.json`](reserved_attributes.json). `seo-text` is reserved for SEO and must match the visible component content. Component-specific rules can be added in [`custom_attributes.json`](custom_attributes.json), including type, allowed values, and minimum values. Attributes not yet listed remain available for advanced integrations, but components must still treat all values as untrusted input.
 
 The `tabs` component accepts `active` (integer, minimum 0), `orientation` (`horizontal` or `vertical`), and `loop` (boolean). The `toast` component accepts `open` (boolean), `duration` (integer, minimum 0), `variant` (`info`, `success`, `warning`, or `error`), and `dismissible` (boolean).
+
+The `accessibility` component is used as `<haat-accessibility>`. It accepts `contrast`, `large-text`, `reduced-motion`, and `focus-visible` (all boolean), plus `storage` (boolean) to persist those settings in browser local storage.
 
 The API caches registered assets in memory at startup, so request handling avoids disk I/O and is designed for millisecond-scale responses. Actual latency depends on payload size, network distance, and deployment resources; measure p95/p99 latency in the target environment before making an SLA claim.
 

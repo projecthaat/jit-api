@@ -1,0 +1,25 @@
+haat-accessibility {
+  display: block;
+}
+
+html.haat-a11y-contrast {
+  filter: contrast(1.18);
+}
+
+html.haat-a11y-large-text {
+  font-size: 112.5%;
+}
+
+html.haat-a11y-reduced-motion *,
+html.haat-a11y-reduced-motion *::before,
+html.haat-a11y-reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0.01ms !important;
+}
+
+html.haat-a11y-focus-visible :focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}

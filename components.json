@@ -16,6 +16,10 @@
     "toast": {
       "css": "templates/toast/toast.css",
       "js": "templates/toast/toast.js"
+    },
+    "accessibility": {
+      "css": "templates/accessibility/accessibility.css",
+      "js": "templates/accessibility/accessibility.js"
     }
   }
 }

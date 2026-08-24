@@ -20,6 +20,13 @@
       "duration": {"type": "integer", "min": 0},
       "variant": {"type": "string", "allowed_values": ["info", "success", "warning", "error"]},
       "dismissible": {"type": "boolean"}
+    },
+    "accessibility": {
+      "contrast": {"type": "boolean"},
+      "large-text": {"type": "boolean"},
+      "reduced-motion": {"type": "boolean"},
+      "focus-visible": {"type": "boolean"},
+      "storage": {"type": "boolean"}
     }
   }
 }

@@ -23,3 +23,24 @@ func TestValidateAttributesAllowsComponentAttributes(t *testing.T) {
 		t.Fatalf("expected component attributes to be accepted: %v", err)
 	}
 }
+
+func TestValidateAttributesAllowsAccessibilityAttributes(t *testing.T) {
+	reservedAttributes = nil
+	customAttributes = map[string]map[string]AttributeRule{"accessibility": {
+		"contrast":       {Type: "boolean"},
+		"large-text":     {Type: "boolean"},
+		"reduced-motion": {Type: "boolean"},
+		"focus-visible":  {Type: "boolean"},
+		"storage":        {Type: "boolean"},
+	}}
+	attributes := map[string]string{
+		"contrast":       "true",
+		"large-text":     "false",
+		"reduced-motion": "true",
+		"focus-visible":  "true",
+		"storage":        "false",
+	}
+	if err := validateAttributes("accessibility", attributes); err != nil {
+		t.Fatalf("expected accessibility attributes to be accepted: %v", err)
+	}
+}
