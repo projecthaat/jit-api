@@ -22,7 +22,7 @@ jobs:
           github-token: ${{ steps.generate_token.outputs.token }}
           script: |
             const prAuthor = context.payload.pull_request.user.login;
-            const message = `<img src="https://githubusercontent.com" alt="Project HAAT Logo" width="80" /><br />
+            const message = `<img src="https://avatars.githubusercontent.com/u/320323214?s=200&v=4" alt="Project HAAT Logo" width="80" /><br />
 
             ## Pull Request Received
 
