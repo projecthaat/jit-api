@@ -1,0 +1,43 @@
+name: "PR Welcome Comment"
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  welcome-comment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate Organisation App Token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.ORGANIZATION_APP_ID }}
+          private-key: ${{ secrets.ORGANIZATION_APP_PRIVATE_KEY }}
+
+      - name: Add welcome comment as Organisation Profile
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ steps.generate_token.outputs.token }}
+          script: |
+            const prAuthor = context.payload.pull_request.user.login;
+            const message = `<img src="https://githubusercontent.com" alt="Project HAAT Logo" width="80" /><br />
+
+            ## Pull Request Received
+
+            Thank you for submitting a pull request to **Project HAAT**, @${prAuthor}. Contributions from the open-source community are valuable to the development of this registry.
+
+            ### Review Process
+            * This is an automated acknowledgment.
+            * The code and changes have been added to the review queue.
+            * **Initial project review will be completed within the next 24 hours.**
+
+            If there are any automated continuous integration (CI) failures, please update the branch accordingly. Thank you for your patience.`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: message
+            });
